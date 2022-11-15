@@ -2,18 +2,20 @@ import warnings
 import os
 import numpy as np
 import pandas as pd
+
 from matplotlib import pyplot as plt
 
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
-from skimage.io import imread
-from skimage.measure import find_contours
-from skimage.transform import resize
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier, RandomForestClassifier
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
+
+from skimage.io import imread
+from skimage.measure import find_contours
+from skimage.transform import resize
 
 # Ignores the warning about f1_score not working when some scores are 0
 warnings.filterwarnings('ignore')
