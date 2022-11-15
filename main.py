@@ -1,24 +1,21 @@
-# Slutprojekt för Big Data
 import warnings
 import os
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+
 from sklearn.neural_network import MLPClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from skimage.io import imread
 from skimage.measure import find_contours
 from skimage.transform import resize
-from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import (
-    confusion_matrix, classification_report, accuracy_score)
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier, RandomForestClassifier
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
-# Ignore the warning about f1_score not working with multiclass
+# Ignores the warning about f1_score not working when some scores are 0
 warnings.filterwarnings('ignore')
 
 
@@ -104,4 +101,4 @@ for model in models:
           confusion_matrix(y_test, y_pred))
     print("Model:", model, "Accuracy:", accuracy_score(y_test, y_pred))
 
-# plt.show()
+plt.show()
