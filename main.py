@@ -87,7 +87,6 @@ for i in range(nr_of_letters):
     # hide the ticks
     ax[i].set_yticklabels([])
     ax[i].set_xticklabels([])
-"""
 
 fig, ax = plt.subplots(3, 8, figsize=(8, 3))
 for i in range(3):
@@ -97,6 +96,18 @@ for i in range(3):
         ax[i, j].set_title(i * 8 + j)
         ax[i, j].set_yticklabels([])
         ax[i, j].set_xticklabels([])
+"""
+
+# Show all the letters in a 2x13 grid
+fig, ax = plt.subplots(2, 13, figsize=(13, 2))
+for i in range(2):
+    for j in range(13):
+        ax[i, j].imshow(
+            pix_mean.iloc[i * 13 + j, :].values.reshape(8, 8), cmap='gray')
+        ax[i, j].set_title(i * 13 + j)
+        ax[i, j].set_yticklabels([])
+        ax[i, j].set_xticklabels([])
+
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, random_state=1)  # Split data into train and test
@@ -118,8 +129,8 @@ for model in models:
           confusion_matrix(y_test, y_pred))
     print("Model:", model, "Accuracy:", accuracy_score(y_test, y_pred))
 
-
 """
+
 # Plot SVC Linear
 svc_linear = SVC(kernel='linear')
 svc_linear.fit(X_train, y_train)
